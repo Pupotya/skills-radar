@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Skills Radar</title>
+  <style>
+        body {
+            font-family: 'Source Sans Pro', arial, helvetica, sans-serif;
+            padding-bottom: 50px;
+        }
+        h3 {
+            margin-top: 50px;
+        }
+        li {
+            margin: 25px 50px 0 0;
+        }
+        table {
+            width: 1400px;
+            margin: 0 50px 0 50px;
+        }
+        td {
+            width: 50%;
+            vertical-align: top;
+            padding-right: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://zalando.github.io/tech-radar/release/radar-0.8.js"></script>
+
+
+<svg id="radar"></svg>
+
+<script>
+  radar_visualization({
+    svg_id: "radar",
+    width: 1450,
+    height: 1000,
+    //scale: 0.9,
+    colors: {
+      background: "#fff",
+      grid: "#bbb",
+      inactive: "#ddd"
+    },
+    title: "My Skills Radar",
+    date: 2024.08,
+    quadrants: [
+      { name: "Test Management" },
+      { name: "Other Tools" },
+      { name: "Automation Tools" },
+      { name: "Languages & Platforms" },
+    ],
+    rings: [
+      { name: "Profound",  color: "#5ba300" },
+      { name: "Aptitude", color: "#009eb0" },
+      { name: "Trial", color: "#c7ba00" },
+      { name: "Exposure",  color: "#e09b96" }
+    ],
+    print_layout: true,
+    links_in_new_tabs: true,
+    entries: [
+        { label: 'Testmo TMS', quadrant: 0, ring: 0, moved: 0 },
+        { label: 'Allure TestOps', quadrant: 0, ring: 1, moved: 0 },
+        { label: 'ReportPortal', quadrant: 0, ring: 1, moved: 0 },
+        { label: 'Allure Report', quadrant: 0, ring: 0, moved: 0 },
+        { label: 'Extent Report', quadrant: 0, ring: 2, moved: 0 },
+        { label: 'YouTrack', quadrant: 0, ring: 0, moved: 0 },
+        { label: 'TestCaseLab', quadrant: 0, ring: 1, moved: 0 },
+        { label: 'Grafana', quadrant: 0, ring: 2, moved: 0 },
+
+
+        { label: 'Postman', quadrant: 1, ring: 1, moved: 0 },
+        { label: 'Chrome Devtools', quadrant: 1, ring: 1, moved: 0 },
+        { label: 'Fiddler', quadrant: 1, ring: 1, moved: 0 },
+        { label: 'Charles', quadrant: 1, ring: 1, moved: 0 },
+        { label: 'Slack API', quadrant: 1, ring: 1, moved: 0 },
+        { label: 'Burp Suite', quadrant: 1, ring: 1, moved: 0 },
+        { label: 'Owasp Zap', quadrant: 1, ring: 1, moved: 0 },
+        { label: 'Git', quadrant: 1, ring: 1, moved: 0 },
+
+
+        { label: 'Selenium WebDriver', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'Selenide', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'Selenoid', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'TestNG', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'AssertJ', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'Awaitility', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'Log4j', quadrant: 2, ring: 1, moved: 0 },
+        { label: 'Gson', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'Gradle', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'Playwright', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'XML', quadrant: 2, ring: 1, moved: 0 },
+        { label: 'JSON', quadrant: 2, ring: 1, moved: 0 },
+        { label: 'CSS selectors', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'XPATH selectors', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'Java RestAssured', quadrant: 2, ring: 0, moved: 0 },
+        { label: 'Maven', quadrant: 2, ring: 1, moved: 0 },
+        { label: 'Gatling', quadrant: 2, ring: 1, moved: 0 },
+        { label: 'Appium', quadrant: 2, ring: 3, moved: 0 },
+        { label: 'Android', quadrant: 2, ring: 2, moved: 0 },
+        { label: 'Gitlab CI', quadrant: 2, ring: 1, moved: 0 },
+        { label: 'Jenkins', quadrant: 2, ring: 1, moved: 0 },
+        { label: 'Youtrack workflow', quadrant: 2, ring: 1, moved: 0 },
+
+
+        { label: 'Java', quadrant: 3, ring: 0, moved: 1 },
+        { label: 'AspectJ', quadrant: 3, ring: 1, moved: 1 },
+        { label: 'JS/TS', quadrant: 3, ring: 1, moved: 0 },
+        { label: 'Bash', quadrant: 3, ring: 1, moved: 0 },
+        { label: 'Scala', quadrant: 3, ring: 2, moved: -1 },
+        { label: 'SQL', quadrant: 3, ring: 1, moved: 0 },
+        { label: 'GraphQL', quadrant: 3, ring: 1, moved: 0 },
+        { label: 'Linux', quadrant: 3, ring: 2, moved: 0 },
+        { label: 'Docker', quadrant: 3, ring: 1, moved: 0 }
+    ]
+    // {
+    //   label: "Some Entry",
+    //   quadrant: 3,          // 0,1,2,3 (counting clockwise, starting from bottom right)
+    //   ring: 1,              // 0,1,2,3 (starting from inside)
+    //   moved: 0             // -1 = moved out (triangle pointing down)
+    //                         //  0 = not moved (circle)
+    //                         //  1 = moved in  (triangle pointing up)
+    // },
+    // ...
+
+  });
+</script>
+
+
+<table>
+  <tr>
+    <td>
+
+      <h3>Semantics:</h3>
+
+      <ul>
+        <li><strong>PROFOUND</strong> &mdash; Technologies I'm confident to use, have already gathered a lot of experience in production and large scale.</li>
+        <li><strong>APTITUDE</strong> &mdash; Technologies that I'm ready to use if needed in day-by-day routine.</li>
+        <li><strong>TRIAL</strong> &mdash; Technologies that I had the simple use cases in production cases</li>
+        <li><strong>EXPOSURE</strong> &mdash; Technologies I'm interested in, have read articles about without production usage.</li>
+      </ul>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
